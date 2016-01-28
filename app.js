@@ -15,13 +15,13 @@ var app = express();
 app.set('port', process.env.PORT || 7001);
 
 app.get('/', function(req, res){
-    res.send('Execution Time...');
+    //res.send('Execution Time...');
 });
 
 app.get('/startOBstore', function(req, res){
 
     obstore.start(function(found){
-        res.send(found);
+        res.write('SUCCESS');
     });
 
     //res.send('dssd');
