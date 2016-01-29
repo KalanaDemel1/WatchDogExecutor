@@ -15,13 +15,15 @@ var app = express();
 app.set('port', process.env.PORT || 7001);
 
 app.get('/', function(req, res){
-    //res.send('Execution Time...');
+    res.send('Execution Time...');
 });
 
-app.get('/startOBstore', function(req, res){
+app.post('/startOBstore', function(req, res){
 
-    obstore.start(function(found){
-        res.write('SUCCESS');
+    //Should check a Token before executing method
+
+    obstore.restart(function(found){
+        res.json({'success':found});
     });
 
     //res.send('dssd');
